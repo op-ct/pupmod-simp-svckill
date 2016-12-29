@@ -1,0 +1,14 @@
+---
+svckill::ignore_defaults:
+  - autovt
+  - goferd
+  - ^systemd-.*
+  - ^NetworkManager.*
+  - ^microcode.*
+  - ^lvm2.*
+  - ^kdump.*
+  - ^chronyd.*
+  - ^tuned.*
+  - ^rsyslog.*
+  - ^rhel-dmesg.*
+  - ^autovt.*

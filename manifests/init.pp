@@ -56,17 +56,22 @@
 #
 class svckill (
   Array[String]               $ignore       = [],
+  Array[String]               $ignore_defaults = [],
   Array[Stdlib::Absolutepath] $ignore_files = [],
-  Boolean                     $verbose      = true
+  Boolean                     $verbose      = true,
+  Boolean                     $debug        = false
 ){
   include '::svckill::ignore::collector'
-
+  $combined_ignore_list = $ignore + $ignore_defaults
+  if ($debug == true) {
+    $combined_ignore_list.each |String $servicename| {
+      notify { "svckill::ignore - entry ${servicename}": }
+    }
+  }
+  $flattened_ignore_files = flatten([$ignore_files, $::svckill::ignore::collector::default_ignore_file])
   svckill { 'svckill':
-    ignore      => $ignore,
-    ignorefiles => flatten([
-      $ignore_files,
-      $::svckill::ignore::collector::default_ignore_file
-    ]),
+    ignore      => $combined_ignore_list,
+    ignorefiles => $flattened_ignore_files,
     verbose     => $verbose,
     require     => Class['svckill::ignore::collector']
   }

@@ -1,12 +1,13 @@
 {
   "name": "simp-svckill",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": "SIMP Team",
   "summary": "Disables all services that are not controlled by Puppet.",
   "license": "Apache-2.0",
   "source": "https://github.com/simp/pupmod-simp-svckill",
   "project_page": "https://github.com/simp/pupmod-simp-svckill",
   "issues_url": "https://simp-project.atlassian.net",
+  "data_provider": "hiera",
   "tags": [
     "simp",
     "svckill"
