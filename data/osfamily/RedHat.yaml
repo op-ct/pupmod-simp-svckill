@@ -1,4 +1,3 @@
-# vim: set expandtab ts=2 sw=2:
 ---
 svckill::ignore_defaults:
 # If this dies, every unused mountpoint gets nuked!
