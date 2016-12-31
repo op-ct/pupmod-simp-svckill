@@ -1,4 +1,4 @@
 ---
 svckill::ignore_defaults:
-  - ^ovirt-.*
-  - ^qemu-.*
+  - ovirt-guest-agent
+  - qemu-guest-agent

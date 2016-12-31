@@ -38,6 +38,9 @@
 # @param ignore
 #   A list of services to never kill
 #
+# @param ignore_defaults
+#   An internal list of embedded services to never kill
+#
 # @param ignore_files
 #   A list of files that contain services to never kill, one per line
 #
@@ -51,6 +54,12 @@
 #
 #   * If ``false``, it will only report on the number of services that it
 #     attempted to kill
+#
+# @param debug
+#   Add notify resources to the catalog based on the union of ignore and
+#   ignore_defaults. 
+#   
+#
 #
 # @author Trevor Vaughan <tvaughan@onyxpoint.com>
 #

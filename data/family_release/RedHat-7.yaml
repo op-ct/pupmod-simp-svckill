@@ -4,11 +4,11 @@ svckill::ignore_defaults:
   - goferd
   - ^systemd-.*
   - ^NetworkManager.*
-  - ^microcode.*
+  - microcode
   - ^lvm2.*
-  - ^kdump.*
+  - kdump
   - ^chronyd.*
-  - ^tuned.*
+  - tuned
   - ^rsyslog.*
-  - ^rhel-dmesg.*
+  - rhel-dmesg
   - ^autovt.*
