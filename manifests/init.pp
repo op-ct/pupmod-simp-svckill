@@ -55,12 +55,6 @@
 #   * If ``false``, it will only report on the number of services that it
 #     attempted to kill
 #
-# @param debug
-#   Add notify resources to the catalog based on the union of ignore and
-#   ignore_defaults. 
-#   
-#
-#
 # @author Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class svckill (
@@ -68,15 +62,9 @@ class svckill (
   Array[String]               $ignore_defaults = [],
   Array[Stdlib::Absolutepath] $ignore_files = [],
   Boolean                     $verbose      = true,
-  Boolean                     $debug        = false
 ){
   include '::svckill::ignore::collector'
   $combined_ignore_list = $ignore + $ignore_defaults
-  if ($debug == true) {
-    $combined_ignore_list.each |String $servicename| {
-      notify { "svckill::ignore - entry ${servicename}": }
-    }
-  }
   $flattened_ignore_files = flatten([$ignore_files, $::svckill::ignore::collector::default_ignore_file])
   svckill { 'svckill':
     ignore      => $combined_ignore_list,
